@@ -9,6 +9,12 @@
         "default_icon": "icon.png",
         "default_popup": "popup.html"
     },
+    "content_scripts": [
+      {
+        "matches": ["http://nippm.natinst.com/*"],
+        "js": ["fluidifyLayout.js"]
+      }
+    ],
     "options_page": "options.html",
     "manifest_version": 2
-  }
+}
