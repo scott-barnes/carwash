@@ -11,7 +11,8 @@
     },
     "content_scripts": [
       {
-        "matches": ["http://nippm.natinst.com/*"],
+        "matches": ["http://nippm.natinst.com/*", "https://nippm.natinst.com/*"],
+        "css": ["fluidifyLayout.css"],
         "js": ["jquery.js", "fluidifyLayout.js"]
       }
     ],
