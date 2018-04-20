@@ -1,7 +1,34 @@
-﻿.field {
+﻿/* fields */
+.field {
   padding-left: 1.0em !important;
   padding-right: 1.0em !important;
   padding-bottom: 0.5em;
+}
+
+.field.large-field, .tcField {
+  flex: 2 0 auto;
+  /*
+  */
+}
+
+.field.small-field {
+  flex: 1 2 auto;
+  min-width: 200px;
+  width: min-content !important;
+  /*
+  flex-wrap: wrap;
+  float: left;
+  position: relative;
+  display: flex;
+  */
+}
+
+.sectionContent {
+  display: flex !important;
+  flex-wrap: wrap;
+  /*
+  flex-direction: row;
+  */
 }
 
 /* sections */
@@ -11,6 +38,7 @@
 
 .sectionTitleExpanded, .sectionTitleCollapsed {
   margin-top: 0.5em !important;
+  clear: left;
 }
 
 .sectionTitleExpanded {
