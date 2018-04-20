@@ -1,4 +1,5 @@
-﻿.field.cfield {
+﻿/* fields */
+.field.cfield {
   overflow: auto !important;
   display: flex;
   flex-direction: row;
@@ -20,6 +21,12 @@
   width: 80% !important;
 }
 
+.field.empty {
+  display: none !important;
+}
+
+
+/* sections */
 .page-margins {
   padding: 0.0em 0.5em !important;
 }
@@ -48,6 +55,12 @@
   display: none;
 }
 
+#requestContent {
+  min-width: auto !important;
+}
+
+
+/* buttons */
 #buttonContainer {
   background: #E6EFF6 !important;
 }
@@ -60,9 +73,10 @@
   margin: 2px !important;
 }
 
-.topButton1 div, .topButton2 div, .topButton3 div, .topButton4 div {
+.topButton1 div, .topButton2 div, .topButton3 div, .topButton4 div, .toolbarLine_title {
   width: auto !important;
 }
+
 
 /* helpless */
 .helpIcon, .fieldHelp {
