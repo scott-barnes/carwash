@@ -10,16 +10,15 @@ function addFieldsList(response, storage){
             continue;
         }
 
-        let isChecked, savedSetting;
+        let isChecked = true;
         if (storage){
+            let savedSetting;
              savedSetting = storage.find(item => item.id === fieldInfo.id);
+             if(savedSetting){
+                isChecked = savedSetting.isChecked;
+            }
         }
-        if(savedSetting){
-            isChecked = savedSetting.isChecked;
-        }
-        else {
-            isChecked = false;
-        }
+
         let div = document.createElement('div');
 
         let checkbox = document.createElement('input');
