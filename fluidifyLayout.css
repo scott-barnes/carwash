@@ -4,6 +4,14 @@
   padding-bottom: 0.5em;
 }
 
+.page-margins {
+  padding: 0.0em 0.5em !important;
+}
+
+.sectionTitleExpanded, .sectionTitleCollapsed {
+  margin-top: 0.5em !important;
+}
+
 .sectionTitleExpanded {
   background: #C1D6E7 !important;
 }
@@ -12,7 +20,23 @@
   background: #82AED1 !important;
 }
 
+#buttonContainer {
+  background: #E6EFF6 !important;
+}
+
+.topButton1, .topButton2, .topButton3, .topButton4 {
+  background: #065FA3 !important;
+  border-radius: 4px;
+  height: auto !important;
+  line-height: auto !important;
+  margin: 2px !important;
+}
+
+.topButton1 div, .topButton2 div, .topButton3 div, .topButton4 div {
+  width: auto !important;
+}
+
 /* helpless */
-.helpIcon,.fieldHelp {
+.helpIcon, .fieldHelp {
   display: none;
 }
