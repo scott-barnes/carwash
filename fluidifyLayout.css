@@ -3,3 +3,16 @@
   padding-right: 1.0em !important;
   padding-bottom: 0.5em;
 }
+
+.sectionTitleExpanded {
+  background: #C1D6E7 !important;
+}
+
+.sectionTitleCollapsed {
+  background: #82AED1 !important;
+}
+
+/* helpless */
+.helpIcon,.fieldHelp {
+  display: none;
+}
