@@ -1,3 +1,5 @@
+var templateCarUrl = 'http://nippm.natinst.com/itg/web/knta/crt/RequestDetail.jsp?REQUEST_ID=100000';
+
 /**
  * Get HTML asynchronously (source https://gomakethings.com/getting-html-asynchronously-from-another-page/)
  * @param  {String}   url      The URL to get HTML from
@@ -56,7 +58,8 @@ function getFieldsFromHtmlResponse(response) {
     return fieldInfos;
 }
 
-function addFieldsList(response){
+function addFieldsList(response, storage){
+    console.log(storage);
     let fieldInfos = getFieldsFromHtmlResponse(response);
     let fieldsDiv = document.getElementById('fields-div');
     for (i = 0; i < fieldInfos.length; i++){
@@ -64,12 +67,22 @@ function addFieldsList(response){
         if (!fieldInfo.id){
             continue;
         }
+
+        let isChecked;
+        let savedSetting = storage.find(item => item.id === fieldInfo.id);
+        if(savedSetting){
+            isChecked = savedSetting.isChecked;
+        }
+        else {
+            isChecked = false;
+        }
         let div = document.createElement('div');
 
         let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.innerHTML;
         checkbox.id = fieldInfo.id;
+        checkbox.checked = isChecked;
         div.appendChild(checkbox);
         fieldsDiv.appendChild(div);
 
@@ -79,29 +92,26 @@ function addFieldsList(response){
     }
 }
 
-// Saves options to chrome.storage
 function save_options() {
-    var color = document.getElementById('color').value;
-    var likesColor = document.getElementById('like').checked;
-    chrome.storage.sync.set({
-      favoriteColor: color,
-      likesColor: likesColor
-    }, function() {
-      // Update status to let user know options were saved.
-      var status = document.getElementById('status');
-      status.textContent = 'Options saved.';
-      setTimeout(function() {
-        status.textContent = '';
-      }, 750);
-    });
-  }
-  
-  // Restores select box and checkbox state using the preferences
-  // stored in chrome.storage.
-  function restore_options() {
-    getHTML( 'http://nippm.natinst.com/itg/web/knta/crt/RequestDetail.jsp?REQUEST_ID=689828&ID_CACHE_NAME=Pluto_p86016163_109809', addFieldsList);
-  }
+    console.log("Saving options");
+    var fieldsDiv = document.getElementById('fields-div');
+    var fields = fieldsDiv.querySelectorAll('input');
+    let storage = [];
+    for(i = 0; i < fields.length; i++){
+        let field = fields[i];
+        storage[i] = { id: field.id, isChecked: field.checked };
+    }
+    chrome.storage.sync.set({ 'visibleFields': storage }, null);
+}
 
-document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click',
-    save_options);
+
+function pageLoaded() {
+	document.getElementById('save').addEventListener('click', save_options);
+    chrome.storage.sync.get({ visibleFields: null }, function(items) {
+		getHTML(templateCarUrl, function(response) {
+			 addFieldsList(response, items.visibleFields);
+		});
+	});
+}
+
+document.addEventListener('DOMContentLoaded', pageLoaded);
