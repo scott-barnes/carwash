@@ -8,10 +8,10 @@
             let isChecked;
             let savedSetting = visibleFields.find(item => item.id === fieldInfo.id);
             if(savedSetting){
-                field.style.display = savedSetting.isChecked ? 'block' : 'none';
+                field.style.display = savedSetting.isChecked ? 'flex' : 'none';
             }
             else {
-                field.style.visibility = 'none';
+                field.style.visibility = 'flex';
             }
 		});
 	});

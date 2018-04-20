@@ -17,4 +17,6 @@ function promoteChildren() {
   
   // Eliminate shadows.
   $('.section-content-shadow').remove()
+  $('.field').prop("class", "field cfield");
+  $('#OUT_EC_REQUEST_WF_STATUS').remove();
 })();

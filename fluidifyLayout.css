@@ -1,11 +1,35 @@
-﻿.field {
-  padding-left: 1.0em !important;
-  padding-right: 1.0em !important;
-  padding-bottom: 0.5em;
+﻿.field.cfield {
+  overflow: auto !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  min-height: 24px;
+  min-width: 100px;
+  width: 90% !important;
+  margin-bottom: 3px;
+}
+
+.labelContainer {
+  float: right !important;
+  width: 20% !important;
+}
+
+.fieldContent {
+  float: right !important;
+  width: 80% !important;
 }
 
 .page-margins {
   padding: 0.0em 0.5em !important;
+}
+
+.tcField {
+  display: none !important;
+}
+
+.sectionContent {
+  padding-top: 0px;
 }
 
 .sectionTitleExpanded, .sectionTitleCollapsed {
@@ -18,6 +42,10 @@
 
 .sectionTitleCollapsed {
   background: #82AED1 !important;
+}
+
+.outTCDiv {
+  display: none;
 }
 
 #buttonContainer {
