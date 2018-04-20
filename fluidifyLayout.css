@@ -1,4 +1,5 @@
-﻿.field.cfield {
+﻿/* fields */
+.field.cfield {
   overflow: auto !important;
   display: flex;
   flex-direction: row;
@@ -19,6 +20,11 @@
   float: right !important;
   width: 80% !important;
 }
+
+.field.empty {
+  display: none !important;
+}
+
 
 /* sections */
 .page-margins {
@@ -53,6 +59,7 @@
   min-width: auto !important;
 }
 
+
 /* buttons */
 #buttonContainer {
   background: #E6EFF6 !important;
@@ -69,6 +76,7 @@
 .topButton1 div, .topButton2 div, .topButton3 div, .topButton4 div, .toolbarLine_title {
   width: auto !important;
 }
+
 
 /* helpless */
 .helpIcon, .fieldHelp {

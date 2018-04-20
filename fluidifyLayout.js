@@ -1,6 +1,6 @@
 function promoteChildren() {
   var self = $(this)
-  self.children().prependTo(self.parent())
+  self.children().prependTo( self.parent() )
   self.remove()
 }
 
@@ -19,4 +19,8 @@ function promoteChildren() {
   $('.section-content-shadow').remove()
   $('.field').prop("class", "field cfield");
   $('#OUT_EC_REQUEST_WF_STATUS').remove();
+  
+  // Eliminate fields without values.
+  var empties = $('.field-value').find('span').filter( (i, e) => !e.textContent )
+  empties.parents('.field').addClass('empty')
 })();
