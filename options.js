@@ -10,8 +10,10 @@ function addFieldsList(response, storage){
             continue;
         }
 
-        let isChecked;
-        let savedSetting = storage.find(item => item.id === fieldInfo.id);
+        let isChecked, savedSetting;
+        if (storage){
+             savedSetting = storage.find(item => item.id === fieldInfo.id);
+        }
         if(savedSetting){
             isChecked = savedSetting.isChecked;
         }
