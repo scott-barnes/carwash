@@ -2,11 +2,7 @@
     "name": "🚗",
     "version": "1.0",
     "permissions": [
-<<<<<<< .merge_file_a24636
-      "tabs", "http://*/*", "https://*/*", "storage"
-=======
-      "tabs", "http://nippm.natinst.com/*", "https://nippm.natinst.com/*"
->>>>>>> .merge_file_a22804
+      "tabs", "http://nippm.natinst.com/*", "https://nippm.natinst.com/*", "storage"
     ],
     "browser_action": {
         "default_title": "🚗",
