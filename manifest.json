@@ -2,7 +2,7 @@
     "name": "🚗",
     "version": "1.0",
     "permissions": [
-      "tabs", "http://nippm.natinst.com/*", "https://nippm.natinst.com/*"
+      "tabs", "http://nippm.natinst.com/*", "https://nippm.natinst.com/*", "storage"
     ],
     "browser_action": {
         "default_title": "🚗",
