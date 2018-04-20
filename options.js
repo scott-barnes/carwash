@@ -35,24 +35,68 @@ function addFieldsList(response, storage){
     }
 }
 
+function addSectionsList(response, storage){
+    console.log(storage);
+    let sectionInfos = getSectionsFromHtmlResponse(response);
+    let sectionsDiv = document.getElementById('sections-div');
+    for (i = 0; i < sectionInfos.length; i++){
+        let sectionInfo = sectionInfos[i];
+        if (!sectionInfo.id){
+            continue;
+        }
+
+        let isChecked = true;
+        if (storage){
+            let savedSetting;
+             savedSetting = storage.find(item => item.id === sectionInfo.id);
+             if(savedSetting){
+                isChecked = savedSetting.isChecked;
+            }
+        }
+
+        let div = document.createElement('div');
+
+        let checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.innerHTML;
+        checkbox.id = sectionInfo.id;
+        checkbox.checked = isChecked;
+        div.appendChild(checkbox);
+        sectionsDiv.appendChild(div);
+
+        let label = document.createElement('lablel');
+        label.innerText = sectionInfo.title;
+        div.appendChild(label);
+    }
+}
+
 function save_options() {
     console.log("Saving options");
     var fieldsDiv = document.getElementById('fields-div');
     var fields = fieldsDiv.querySelectorAll('input');
-    let storage = [];
+    let fieldsStorage = [];
     for(i = 0; i < fields.length; i++){
         let field = fields[i];
-        storage[i] = { id: field.id, isChecked: field.checked };
+        fieldsStorage[i] = { id: field.id, isChecked: field.checked };
     }
-    chrome.storage.sync.set({ 'visibleFields': storage }, null);
+
+    var sectionsDiv = document.getElementById('sections-div');
+    var sections = sectionsDiv.querySelectorAll('input');
+    sectionsStorage = [];
+    for(i = 0; i < sections.length; i++){
+        let section = sections[i];
+        sectionsStorage[i] = { id: section.id, isChecked: section.checked };
+    }
+    chrome.storage.sync.set({ 'visibleSections': sectionsStorage,  'visibleFields': fieldsStorage  }, null);
 }
 
 
 function pageLoaded() {
 	document.getElementById('save').addEventListener('click', save_options);
-    chrome.storage.sync.get({ visibleFields: null }, function(items) {
+    chrome.storage.sync.get({ visibleFields: null, visibleSections: null }, function(items) {
 		getHTML(templateCarUrl, function(response) {
-			 addFieldsList(response, items.visibleFields);
+             addFieldsList(response, items.visibleFields);
+             addSectionsList(response, items.visibleSections);
 		});
 	});
 }

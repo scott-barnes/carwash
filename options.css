@@ -1,0 +1,12 @@
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin-bottom: 20px;
+    height: 20em;
+}
+
+.field-checkbox {
+
+}

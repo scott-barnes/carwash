@@ -1,7 +1,8 @@
 (function run() {
     console.log('Hiding unwanted fields');
-    chrome.storage.sync.get({ visibleFields: null }, function(items) {
+    chrome.storage.sync.get({ visibleFields: null, visibleSections: null }, function(items) {
         let visibleFields = items.visibleFields;
+        let visibleSections = items.visibleSections;
         let fields = document.querySelectorAll('.field');
         fields.forEach(function(field) {
             let fieldInfo = getFieldInfo(field);
@@ -13,6 +14,13 @@
             else {
                 field.style.visibility = 'flex';
             }
+
+            visibleSections.forEach(function(section){
+                if (!section.isChecked){
+                    let sectionElement = document.getElementById(section.id);
+                    sectionElement.style.display = 'none';
+                }
+            })
 		});
 	});
 })();

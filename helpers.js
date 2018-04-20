@@ -25,6 +25,13 @@ var getHTML = function ( url, callback ) {
 
 };
 
+function getSectionInfo(section){
+    let title, id;
+    title = section.querySelector('a').nextSibling.data.trim();
+    id = section.id;
+    return { title: title, id: id };
+}
+
 function getFieldInfo(field){
     let title, id;
     
@@ -54,4 +61,17 @@ function getFieldsFromHtmlResponse(response) {
         }
     }
     return fieldInfos;
+}
+
+function getSectionsFromHtmlResponse(response) {
+    let sections = response.documentElement.querySelectorAll('div');
+    let sectionInfos = [];
+    for (i = 0; i < sections.length; i++){
+        let section = sections[i];
+        if (section && section.id.includes("OUT_EC_")){
+            let sectionInfo = getSectionInfo(section);
+            sectionInfos[sectionInfos.length] = sectionInfo;
+        }
+    }
+    return sectionInfos;
 }
