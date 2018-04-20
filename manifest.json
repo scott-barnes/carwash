@@ -13,7 +13,7 @@
       {
         "matches": ["http://nippm.natinst.com/*", "https://nippm.natinst.com/*"],
         "css": ["fluidifyLayout.css"],
-        "js": ["jquery.js", "fluidifyLayout.js"]
+        "js": ["helpers.js", "jquery.js", "fluidifyLayout.js", "hidefields.js"]
       }
     ],
     "options_page": "options.html",
