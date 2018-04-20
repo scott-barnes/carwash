@@ -1,3 +1,3 @@
 (function run() {
-  document.body.style.backgroundColor='green';
+  $('.labelContainer').css({ 'background-color': '#82AED1' })
 })();
