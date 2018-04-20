@@ -1,8 +1,14 @@
-﻿.field {
+﻿/* fields */
+.field {
   padding-left: 1.0em !important;
   padding-right: 1.0em !important;
   padding-bottom: 0.5em;
 }
+
+.field.empty {
+  display: none !important;
+}
+
 
 /* sections */
 .page-margins {
@@ -25,6 +31,7 @@
   min-width: auto !important;
 }
 
+
 /* buttons */
 #buttonContainer {
   background: #E6EFF6 !important;
@@ -41,6 +48,7 @@
 .topButton1 div, .topButton2 div, .topButton3 div, .topButton4 div, .toolbarLine_title {
   width: auto !important;
 }
+
 
 /* helpless */
 .helpIcon, .fieldHelp {
