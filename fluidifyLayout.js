@@ -9,12 +9,12 @@ function promoteChildren() {
   ['.row','.col_1_1','.col_2_1','.col_2_2','.col_3_1','.col_3_2','.col_3_3'].forEach(
     carClass => $(carClass).each( promoteChildren )
   )
-  
+
   // Suppress sidebars.
   $('.sectionsTopBar').remove()
   $('#sidebarInner').remove()
   $('#sectionsInner').each( promoteChildren )
-  
+
   // Eliminate shadows.
   $('.section-content-shadow').remove()
   $('.field').prop("class", "field cfield");
@@ -22,4 +22,10 @@ function promoteChildren() {
   // Eliminate fields without values.
   var empties = $('.field-value').find('span').filter( (i, e) => !e.textContent )
   empties.parents('.field').addClass('empty')
+
+  // Colons?  We don't need no stinkin’ colons.
+  $('label').filter( (i, e) => e.title ).each( (i, e) => {
+    e.title = e.title.replace( /:$/, '' )
+    e.textContent = e.textContent.trim().replace( /:$/, '' )
+  })
 })();
