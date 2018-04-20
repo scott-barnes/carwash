@@ -2,7 +2,11 @@
     "name": "🚗",
     "version": "1.0",
     "permissions": [
+<<<<<<< .merge_file_a24636
       "tabs", "http://*/*", "https://*/*", "storage"
+=======
+      "tabs", "http://nippm.natinst.com/*", "https://nippm.natinst.com/*"
+>>>>>>> .merge_file_a22804
     ],
     "browser_action": {
         "default_title": "🚗",
@@ -11,8 +15,9 @@
     },
     "content_scripts": [
       {
-        "matches": ["http://nippm.natinst.com/*"],
-        "js": ["fluidifyLayout.js"]
+        "matches": ["http://nippm.natinst.com/*", "https://nippm.natinst.com/*"],
+        "css": ["fluidifyLayout.css"],
+        "js": ["jquery.js", "fluidifyLayout.js"]
       }
     ],
     "options_page": "options.html",
