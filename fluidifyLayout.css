@@ -11,13 +11,6 @@
   margin-bottom: 3px;
 }
 
-.fieldPrompt {
-  text-align: right;
-  padding-right: 0.5em;
-  padding-top: 0.49em;
-  min-height: 24px;
-}
-
 .labelContainer {
   float: right !important;
   width: 20% !important;
