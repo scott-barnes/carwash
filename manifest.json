@@ -1,11 +1,11 @@
 ﻿{
-    "name": "🚗",
+    "name": "CARwash",
     "version": "1.0",
     "permissions": [
       "tabs", "http://nippm.natinst.com/*", "https://nippm.natinst.com/*", "storage"
     ],
     "browser_action": {
-        "default_title": "🚗",
+        "default_title": "💦🚗",
         "default_icon": "icon.png",
         "default_popup": "popup.html"
     },
